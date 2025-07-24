@@ -1,0 +1,252 @@
+
+:root {
+  --bg-dark: #0d0d0d;
+  --text-light: #fff;
+  --kit-main-color: #0066b2;
+  --kit-sleeve-color: #e31b23;
+  --kit-collar-color: #e31b23;  
+  --kit-text-color: #fff;
+  --kit-number-color: #fff;
+  --kit-font: "Arial Black", system-ui, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-dark);
+  color: var(--text-light);
+  font-family: system-ui, Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.kit-container {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+}
+
+.controls {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.form-group input, .form-group select {
+  padding: 8px 12px;
+  border: 1px solid #444;
+  border-radius: 4px;
+  background: #222;
+  color: #fff;
+}
+
+/* --- NAME TEXT WRAPPING + AUTO-UPPERCASE DISPLAY --- */
+.kit-name {
+  font-family: var(--kit-font);
+  font-size: 24px;
+  color: var(--kit-text-color);
+  text-transform: uppercase; /* faqat ko‘rsatishda kattalashtiramiz */
+  text-shadow:
+    2px 2px 0 rgba(0,0,0,0.3),
+    -1px -1px 0 rgba(0,0,0,0.3),
+    1px -1px 0 rgba(0,0,0,0.3),
+    -1px 1px 0 rgba(0,0,0,0.3),
+    1px 1px 0 rgba(0,0,0,0.3);
+  padding: 0 20px;
+  text-align: center;
+  /* uzun matnlar uchun: */
+  word-break: break-word;
+  overflow-wrap: anywhere;
+  white-space: normal;
+  line-height: 1.1;
+  max-width: 100%;
+  word-wrap: break-word; /* eski alias */
+  word-break: break-word; /* kengroq qo‘llab-quvvatlash uchun */
+}
+
+/* qolganlari o‘sha-o‘sha */
+.kit-viewer {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  perspective: 1000px;
+}
+
+.kit-3d {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.kit-3d.show-back {
+  transform: rotateY(180deg);
+}
+
+.kit-face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  background: var(--kit-main-color);
+  border-radius: 15px;
+  overflow: hidden;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  border: 2px solid rgba(255,255,255,0.2);
+}
+
+.kit-front {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.kit-back {
+  transform: rotateY(180deg);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Yenglar */
+.kit-sleeve-left, .kit-sleeve-right {
+  position: absolute;
+  top: 12%;
+  width: 22%;
+  height: 28%;
+  background: var(--kit-sleeve-color);
+  border-radius: 50% 50% 40% 40%;
+  transform: skewY(8deg);
+  z-index: 1;
+}
+
+.kit-sleeve-left { left: -4%; }
+.kit-sleeve-right { right: -4%; }
+
+/* Bo'yin qismi */
+.kit-collar {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30%;
+  height: 12%;
+  background: var(--kit-collar-color);
+  border-radius: 0 0 15px 15px;
+  z-index: 1;
+}
+
+/* Emblem */
+.kit-crest-container {
+  width: 80px;
+  height: 80px;
+  margin-top: 20px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.kit-crest {
+  font-weight: bold;
+  font-size: 24px;
+  color: #000;
+}
+
+/* Sponsor */
+.kit-sponsor-logo {
+  position: absolute;
+  bottom: 20%;
+  font-family: var(--kit-font);
+  font-size: 18px;
+  color: var(--kit-text-color);
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+/* Raqamlar */
+.kit-number {
+  font-family: var(--kit-font);
+  font-size: 80px;
+  font-weight: bold;
+  color: var(--kit-number-color);
+  text-shadow:
+    3px 3px 0 rgba(0,0,0,0.3),
+    -1px -1px 0 rgba(0,0,0,0.3),
+    1px -1px 0 rgba(0,0,0,0.3),
+    -1px 1px 0 rgba(0,0,0,0.3),
+    1px 1px 0 rgba(0,0,0,0.3);
+  margin-bottom: 10px;
+}
+
+.kit-front-number {
+  font-family: var(--kit-font);
+  font-size: 40px;
+  color: var(--kit-number-color);
+  margin-top: auto;
+  margin-bottom: 30px;
+  text-shadow:
+    2px 2px 0 rgba(0,0,0,0.3),
+    -1px -1px 0 rgba(0,0,0,0.3),
+    1px -1px 0 rgba(0,0,0,0.3),
+    -1px 1px 0 rgba(0,0,0,0.3),
+    1px 1px 0 rgba(0,0,0,0.3);
+  z-index: 2;
+}
+
+/* Tugmachalar */
+.buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+button {
+  padding: 10px 20px;
+  background: #00c853;
+  color: #000;
+  border: none;
+  border-radius: 4px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+button:hover { opacity: 0.9; }
+
+.view-toggle {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.view-toggle button {
+  background: #333;
+  color: #fff;
+}
+
+.view-toggle button.active {
+  background: #00c853;
+  color: #000;
+}

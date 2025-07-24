@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+<meta charset="utf-8" />
+<title>Futbol Formasi Muallif: Karimov Xayot</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link rel="stylesheet" href="./Main.css">
+</head>
+<body>
+<div class="kit-container">
+  <div class="controls">
+    <div class="form-group">
+      <label for="playerName">Futbolchi Ismi</label>
+      <!-- maxlength olib tashlandi; datalist qo‘shildi -->
+      <input id="playerName" type="text" placeholder="Ism yozing misol Uchun Xayot . . ." list="playerNameList">
+      <!-- takliflar, ixtiyoriy -->
+      <datalist id="playerNameList">
+        <option value="Messi"></option>
+        <option value="Ronaldo"></option>
+        <option value="Neymar"></option>
+        <option value="Mbappe"></option>
+        <option value="Haaland"></option>
+        <option value="Benzema"></option>
+        <option value="Lewandowski"></option>
+        <option value="Salah"></option>
+      </datalist>
+    </div>
+    
+    <div class="form-group">
+      <label for="playerNumber">Forma Raqami</label>
+      <input id="playerNumber" type="number" min="1" max="99" placeholder="10">
+    </div>
+    
+    <div class="form-group">
+      <label for="teamSelect">Jamoa</label>
+      <select id="teamSelect">
+        <option value="barca">Barcelona</option>
+        <option value="real">Real Madrid</option>
+        <option value="manu">Manchester United</option>
+        <option value="liverpool">Liverpool</option>
+        <option value="juve">Juventus</option>
+        <option value="chelsea">Chelsea</option>
+        <option value="psg">PSG</option>
+        <option value="bayern">Bayern Munich</option>
+      </select>
+    </div>
+    
+    <div class="form-group">
+      <label for="kitStyle">Forma Turi</label>
+      <select id="kitStyle">
+        <option value="home">Uy formasi</option>
+        <option value="away">Safar formasi</option>
+        <option value="third">3-chi forma</option>
+      </select>
+    </div>
+  </div>
+  
+  <div class="view-toggle">
+    <button id="viewFrontBtn" class="active">Old tomondan</button>
+    <button id="viewBackBtn">Orqa tomondan</button>
+  </div>
+  
+  <div class="kit-viewer">
+    <div id="kit3d" class="kit-3d">
+      <div class="kit-face kit-front">
+        <div class="kit-sleeve-left"></div>
+        <div class="kit-sleeve-right"></div>
+        <div class="kit-collar"></div>
+        <div class="kit-crest-container">
+          <div id="kitCrest" class="kit-crest">FCB</div>
+        </div>
+        <div class="kit-sponsor-logo">NIKE</div>
+        <div id="kitFrontNumber" class="kit-front-number">10</div>
+      </div>
+      <div class="kit-face kit-back">
+        <div class="kit-sleeve-left"></div>
+        <div class="kit-sleeve-right"></div>
+        <div class="kit-collar"></div>
+        <div id="kitNumber" class="kit-number">10</div>
+        <div id="kitName" class="kit-name">ISM</div>
+      </div>
+    </div>
+  </div>
+  
+  <div class="buttons">
+    <button id="downloadBtn">Yuklab olish</button>
+    <button id="randomBtn">Tasodifiy forma</button>
+  </div>
+</div>
+
+<script src="./Main.js"></script>
+</body>
+</html>
